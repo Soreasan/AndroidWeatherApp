@@ -11,7 +11,34 @@
     tools:context="com.cslearner.www.weather.MainActivity">
 
     <TextView
+        android:text="Temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tempTextView" />
+
+    <TextView
+        android:text="location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationTextView"
+        android:layout_below="@+id/tempTextView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="condition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/conditionTextView"
+        android:layout_below="@+id/locationTextView"
+        android:layout_alignRight="@+id/locationTextView"
+        android:layout_alignEnd="@+id/locationTextView" />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/conditionTextView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/weatherImgWebView" />
 </RelativeLayout>

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+//gradle manages dependencies for our app
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
@@ -17,6 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //Exclude these files because there are duplicates
+    packagingOptions{
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INFO/NOTICE'
+        exclude 'META-INFO/notice.txt'
+    }
 }
 
 dependencies {
@@ -26,4 +34,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+    //Maven libraries, dependencies that we include.  When we compile this it will grab the libraries off the internet and then include it and build it.  Gradle does it all by itself.
+    compile 'org.springframework.android:spring-android-rest-template:2.0.0.M3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.5'
 }
